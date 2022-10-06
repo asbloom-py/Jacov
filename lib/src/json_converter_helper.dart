@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'union_timestamp.dart';
@@ -12,6 +13,7 @@ const allJsonConverters = <JsonConverter<dynamic, dynamic>>[
   timestampConverter,
   colorConverter,
   unionTimestampConverter,
+  geopointConverter
 ];
 
 const allJsonConvertersSerializable = JsonSerializable(
@@ -55,4 +57,16 @@ class ColorConverter implements JsonConverter<Color, int> {
   Color fromJson(int json) => Color(json);
   @override
   int toJson(Color object) => object.value;
+}
+
+const geopointConverter = GeoPointConverter();
+
+class GeoPointConverter implements JsonConverter<LatLng, GeoPoint> {
+  const GeoPointConverter();
+  @override
+  LatLng fromJson(GeoPoint geoPoint) =>
+      LatLng(geoPoint.latitude, geoPoint.longitude);
+
+  @override
+  GeoPoint toJson(LatLng latLng) => GeoPoint(latLng.latitude, latLng.longitude);
 }

@@ -1,22 +1,23 @@
-name: json_converter_helper
-description: JSON converters for package:json_serializable.
-version: 0.1.1
-repository: https://github.com/mono0926/json_converter_helper
+name: jacov
+description: JSON converters for package:jacov.
+version: 0.1.2
+repository: https://github.com/asbloom-py/Jacov.git
 
 environment:
-  sdk: '>=2.17.0 <3.0.0'
+  sdk: '>=2.18.0 <3.0.0'
 
 dependencies:
   cloud_firestore: ^3.2.1
   freezed_annotation: ^2.0.3
+  google_maps_flutter: ^2.2.1
   json_annotation: ^4.6.0
 
 dev_dependencies:
-  build_runner:
-  fake_cloud_firestore:
+  build_runner: null
+  fake_cloud_firestore: null
   flutter_test:
     sdk: flutter
-  freezed:
-  json_serializable:
-  pedantic_mono:
-  test:
+  freezed: null
+  json_serializable: null
+  pedantic_mono: null
+  test: null

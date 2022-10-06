@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:json_converter_helper/json_converter_helper.dart';
+import 'package:jacov/jacov.dart';
 
 part 'entity.freezed.dart';
 part 'entity.g.dart';

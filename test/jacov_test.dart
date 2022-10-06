@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
-import 'package:json_converter_helper/json_converter_helper.dart';
+import 'package:jacov/jacov.dart';
 import 'package:test/test.dart';
 import 'helper/helper.dart';
 
