@@ -13,7 +13,7 @@ const allJsonConverters = <JsonConverter<dynamic, dynamic>>[
   timestampConverter,
   colorConverter,
   unionTimestampConverter,
-  geopointConverter
+  geopointConverter,
 ];
 
 const allJsonConvertersSerializable = JsonSerializable(

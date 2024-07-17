@@ -1,3 +1,7 @@
+## 0.1.7
+
+- Upgrade Flutter 3.22.0
+
 ## 0.1.6
 
 - Upgrade sdk
