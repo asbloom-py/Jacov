@@ -16,8 +16,15 @@ class UnionTimestampConverter implements JsonConverter<UnionTimestamp, Object> {
 
   @override
   UnionTimestamp fromJson(Object json) {
-    final timestamp = json as Timestamp;
-    return UnionTimestamp.dateTime(timestamp.toDate());
+    if (json is Timestamp) {
+      final timestamp = json;
+      return UnionTimestamp.dateTime(timestamp.toDate());
+    } else if (json is int) {
+      final dateTime = DateTime.fromMillisecondsSinceEpoch(json * 1000);
+      return UnionTimestamp.dateTime(dateTime);
+    } else {
+      throw ArgumentError('TimestampConverter cannot convert $json');
+    }
   }
 
   @override

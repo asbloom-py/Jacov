@@ -39,15 +39,32 @@ class DocumentReferenceConverter
 
 const timestampConverter = TimestampConverter();
 
-class TimestampConverter implements JsonConverter<DateTime, Timestamp> {
+class TimestampConverter implements JsonConverter<DateTime, dynamic> {
   const TimestampConverter();
 
   @override
-  DateTime fromJson(Timestamp json) => json.toDate();
+  DateTime fromJson(dynamic json) {
+    if (json is Timestamp) {
+      return json.toDate();
+    } else if (json is int) {
+      return DateTime.fromMillisecondsSinceEpoch(json * 1000);
+    } else {
+      throw ArgumentError('TimestampConverter cannot convert $json');
+    }
+  }
 
   @override
   Timestamp toJson(DateTime object) => Timestamp.fromDate(object);
 }
+// class TimestampConverter implements JsonConverter<DateTime, Timestamp> {
+//   const TimestampConverter();
+
+//   @override
+//   DateTime fromJson(Timestamp json) => json.toDate();
+
+//   @override
+//   Timestamp toJson(DateTime object) => Timestamp.fromDate(object);
+// }
 
 const colorConverter = ColorConverter();
 
